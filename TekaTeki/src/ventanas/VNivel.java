@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class nivel extends JFrame {
+public class VNivel extends JFrame {
 
 	private JPanel contentPane;
 
@@ -18,7 +18,7 @@ public class nivel extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					nivel frame = new nivel();
+					VNivel frame = new VNivel();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +30,7 @@ public class nivel extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public nivel() {
+	public VNivel() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
