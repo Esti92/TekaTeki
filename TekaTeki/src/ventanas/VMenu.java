@@ -2,6 +2,8 @@ package ventanas;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -12,7 +14,8 @@ import javax.swing.JButton;
 public class VMenu extends JFrame {
 
 	private JPanel contentPane;
-
+	private JFrame anterior = this;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -20,7 +23,7 @@ public class VMenu extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VMenu frame = new VMenu();
+					VMenu frame = new VMenu(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -32,7 +35,7 @@ public class VMenu extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VMenu() {
+	public VMenu(JFrame vtn) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 195, 300);
 		contentPane = new JPanel();
@@ -44,17 +47,60 @@ public class VMenu extends JFrame {
 		contentPane.add(panel, "cell 0 1,alignx center,growy");
 		panel.setLayout(new MigLayout("", "[]", "[][][][]"));
 		
-		JButton btnNivelBajo = new JButton("Jugar");
-		panel.add(btnNivelBajo, "cell 0 0,alignx center");
+		JButton btnJugar = new JButton("Jugar");
+		panel.add(btnJugar, "cell 0 0,alignx center");
 		
-		JButton btnNivelMedio = new JButton("Retar");
-		panel.add(btnNivelMedio, "cell 0 1,alignx center");
+		btnJugar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// Cargar siguiente ventana	
+				setVisible(false);
+				VNivel pS = new VNivel(anterior);
+				pS.setLocationRelativeTo(null);
+				pS.setVisible(true);
+			}
+		});
 		
-		JButton btnNivelDificil = new JButton("Puntuacion");
-		panel.add(btnNivelDificil, "cell 0 2,alignx center");
+		JButton btnRetar = new JButton("Retar");
+		panel.add(btnRetar, "cell 0 1,alignx center");
+		
+		btnRetar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// Cargar siguiente ventana	
+				setVisible(false);
+				VElegirRetado pS = new VElegirRetado(anterior);
+				pS.setLocationRelativeTo(null);
+				pS.setVisible(true);
+			}
+		});
+		
+		JButton btnPuntuacion = new JButton("Puntuacion");
+		panel.add(btnPuntuacion, "cell 0 2,alignx center");
+		
+		btnPuntuacion.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// Cargar siguiente ventana	
+				setVisible(false);
+				VRanking pS = new VRanking(anterior);
+				pS.setLocationRelativeTo(null);
+				pS.setVisible(true);
+			}
+		});
 		
 		JButton btnAtras = new JButton("Atras");
 		panel.add(btnAtras, "cell 0 3,alignx center");
+		
+		btnAtras.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// Cargar siguiente ventana	
+				setVisible(false);
+				vtn.setVisible(true);
+			}
+		});
+		
 	}
 
 }

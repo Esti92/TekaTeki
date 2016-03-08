@@ -2,6 +2,8 @@ package ventanas;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -21,7 +23,7 @@ public class VNivel extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VNivel frame = new VNivel();
+					VNivel frame = new VNivel(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -33,7 +35,7 @@ public class VNivel extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VNivel() {
+	public VNivel(JFrame vtn) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 195, 300);
 		contentPane = new JPanel();
@@ -48,14 +50,56 @@ public class VNivel extends JFrame {
 		JButton btnNivelBajo = new JButton("Nivel bajo");
 		panel.add(btnNivelBajo, "cell 0 1,alignx center");
 		
+		btnNivelBajo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// Cargar siguiente ventana	
+				setVisible(false);
+				VJuego pS = new VJuego();
+				pS.setLocationRelativeTo(null);
+				pS.setVisible(true);
+			}
+		});
+		
 		JButton btnNivelMedio = new JButton("Nivel Medio");
 		panel.add(btnNivelMedio, "cell 0 2,alignx center");
+		
+		btnNivelMedio.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// Cargar siguiente ventana	
+				setVisible(false);
+				VJuego pS = new VJuego();
+				pS.setLocationRelativeTo(null);
+				pS.setVisible(true);
+			}
+		});
 		
 		JButton btnNivelDificil = new JButton("Nivel Dificil");
 		panel.add(btnNivelDificil, "cell 0 3,alignx center");
 		
+		btnNivelDificil.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// Cargar siguiente ventana	
+				setVisible(false);
+				VJuego pS = new VJuego();
+				pS.setLocationRelativeTo(null);
+				pS.setVisible(true);
+			}
+		});
+		
 		JButton btnAtras = new JButton("Atras");
 		panel.add(btnAtras, "cell 0 4,alignx center");
+		
+		btnAtras.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// Cargar siguiente ventana	
+				setVisible(false);
+				vtn.setVisible(true);
+			}
+		});
+		
 	}
-
 }
