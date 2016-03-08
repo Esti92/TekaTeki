@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class juego extends JFrame {
+public class VMenu extends JFrame {
 
 	private JPanel contentPane;
 
@@ -18,7 +18,7 @@ public class juego extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					juego frame = new juego();
+					VMenu frame = new VMenu();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +30,7 @@ public class juego extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public juego() {
+	public VMenu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
