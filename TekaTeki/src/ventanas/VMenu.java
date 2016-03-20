@@ -69,9 +69,9 @@ public class VMenu extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				// Cargar siguiente ventana	
 				setVisible(false);
-				VElegirRetado pS = new VElegirRetado(anterior);
-				pS.setLocationRelativeTo(null);
-				pS.setVisible(true);
+//				VElegirRetado pS = new VElegirRetado(anterior);
+//				pS.setLocationRelativeTo(null);
+//				pS.setVisible(true);
 			}
 		});
 		
@@ -83,9 +83,9 @@ public class VMenu extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				// Cargar siguiente ventana	
 				setVisible(false);
-				VRanking pS = new VRanking(anterior);
-				pS.setLocationRelativeTo(null);
-				pS.setVisible(true);
+//				VRanking pS = new VRanking(anterior);
+//				pS.setLocationRelativeTo(null);
+//				pS.setVisible(true);
 			}
 		});
 		
